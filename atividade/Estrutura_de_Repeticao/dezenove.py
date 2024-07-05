@@ -1,4 +1,4 @@
-# Faça um programa que, dado um conjunto de N números, determine o menor valor, o maior valor e a soma dos valores.
+# Altere o programa anterior para que ele aceite apenas números entre 0 e 1000
 
 def validaNum(n_str):
     if not n_str.isdigit():
@@ -13,23 +13,30 @@ BROWN = "\033[0;33m"
 
 
 def main():
+
     while True:
         try:
+            lista = []
             while True:
                 try:
-                    lista = []
                     n_str = input('Informe quantos números deseja: ')
                     n = validaNum(n_str)
-                    break
+                    if n > 1000 or n < 0:
+                        print('informe um número menor q 1000.')
+                    else:
+                        break
                 except ValueError as ve:
                     print(f'{RED}Erro: {ve}{RESET}\n')
-            while True:
+            i = 0
+            while i < n:
+                n_str = input(f'Informe o {i + 1}° número: ')
                 try:
-                    for i in range(n):
-                        n_str = input(f'Informe o {i + 1}° número:')
-                        m = validaNum(n_str)
+                    m = validaNum(n_str)
+                    if m > 1000 or m < 0:
+                        print('Informe um número maior que 0 e menor que 1000.')
+                    else:
                         lista.append(m)
-                    break
+                        i += 1  # Incrementa apenas se a entrada for válida
                 except ValueError as ve:
                     print(f'{RED}Erro: {ve}{RESET}\n')
 

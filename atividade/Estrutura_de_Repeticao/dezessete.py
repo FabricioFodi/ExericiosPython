@@ -16,8 +16,6 @@ BROWN = "\033[0;33m"
 def main():
     n_str = input('Informe um número fatorial: ')
     n = validaNum(n_str)
-
-    count = 0
     fatorial = 1
     while True:
         try:

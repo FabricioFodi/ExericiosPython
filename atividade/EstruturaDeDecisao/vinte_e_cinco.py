@@ -41,12 +41,11 @@ while True:
         if resposta0 in {'sim', 's'}:
             contador += 1
 
-
         if contador == 2:
             print(f'Repondeu "sim" para {contador} perguntas.\nClassificação: Suspeito')
         elif 3 <= contador <= 4:
             print(f'Repondeu "sim" para {contador} perguntas.\nClassificação: Cúmplice')
-        elif contador ==5:
+        elif contador == 5:
             print(f'Repondeu "sim" para {contador} perguntas.\nClassificação: Assasino')
         else:
             print(f'Repondeu "sim" para {contador} perguntas.\nClassificação: Inocente')

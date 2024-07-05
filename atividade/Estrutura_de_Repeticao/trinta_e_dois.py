@@ -1,9 +1,12 @@
-# Altere o programa de cálculo do fatorial, permitindo ao usuário calcular o fatorial várias vezes
-# e limitando o fatorial a números inteiros positivos e menores que 16.
+# Faça um programa que calcule o fatorial de um número inteiro fornecido pelo usuário.
+# Ex.: 5!=5.4.3.2.1=120. A saída deve ser conforme o exemplo abaixo:
+# Fatorial de: 5
+# 5! =  5 . 4 . 3 . 2 . 1 = 120
 
-def validaNum(n_str):
+
+def valida_entrada(n_str):
     if not n_str.isdigit():
-        raise ValueError('Informe apenas dígitos.')
+        raise ValueError('Valor inválido.')
     return int(n_str)
 
 
@@ -16,16 +19,17 @@ BROWN = "\033[0;33m"
 def main():
     while True:
         try:
-            count = 0
+            n_str = input('Informe o valor a ser fatorado: ')
+            n = valida_entrada(n_str)
+
             fatorial = 1
-            n = int(input('Informe um número fatorial: '))
-            if n > 16 or n < 1:
-                raise ValueError('Informe apenas números inteiros.')
-            else:
-                for i in range(1, n + 1):
-                    fatorial *= i
-                print(f'Fatorial de {i} é {fatorial}')
-                break
+            resultado = f'{n}! = '
+            for i in range(1, n + 1):
+                fatorial *= i
+                resultado += f' {i} .'
+            resultado = resultado[:-2] + f' = {fatorial}'  # Removendo o último " ."
+            print(resultado)
+            break
         except ValueError as ve:
             print(f'{RED}Erro: {ve}{RESET}\n')
         except KeyboardInterrupt:
